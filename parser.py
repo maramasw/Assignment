@@ -6,10 +6,10 @@ import sys
 
 class Parser:
 
-    def __init__(self, input=None):
+    def __init__(self, inpt=None):
         if input is None:
             pass
-        self.data = input
+        self.data = inpt
         self.count = 0
         self.pre_star_count = 0
         self.pre_dot_count = 0
@@ -18,9 +18,11 @@ class Parser:
         self.index = []
         self.output = []
 
-    def printData(self):
+    # Create for debugging purpose.
+    def printInputData(self):
         print (self.data)
 
+    # main parser method to process input data.
     def parseData(self):
         for line in self.data:
             if line not in '\xc2\xa0\n':
