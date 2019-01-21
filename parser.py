@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!python
 
 import re
 import sys
@@ -25,7 +25,8 @@ class Parser:
     # main parser method to process input data.
     def parseData(self):
         for line in self.data:
-            if line not in '\xc2\xa0\n':
+            line = line.strip()
+            if line not in '\xc2\xa0\n' and line != '':
                 starpat = re.compile(r'^(\*+)(.*)$')  # Pattern match for * in the string
                 dotpat = re.compile(r'^(\.+)(.*)$')  # Pattern match for . in the string
 
@@ -107,8 +108,9 @@ class Parser:
 
                     # Span multiple lines case
                     pre_data = self.output[-1]
+
                     # Add leading spaces to the data text.
-                    line = line.rjust(len(line) + self.pre_dot_count)
+                    line = line.rjust(len(line) + self.pre_dot_count + 3)
                     data = pre_data + "\n" + line
 
                     # Directly modify the output list for previous/last value.
