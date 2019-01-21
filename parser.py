@@ -10,7 +10,7 @@ class Parser:
         if input is None:
             pass
         self.data = inpt
-        self.count = 0
+        self.count = 0 
         self.pre_star_count = 0
         self.pre_dot_count = 0
         self.cur_star_count = 0
@@ -41,7 +41,10 @@ class Parser:
                         self.count += 1
                         self.appendOutput(str(self.count) + ' ' + data)
                         self.pre_star_count = self.cur_star_count
+                        self.index = []
                     elif self.cur_star_count > 1:
+                        if self.pre_star_count == 0 and self.count == 0:
+                            self.count = 1
                         indx = [self.count]
                         # check if previously index was set
                         # if yes, use it to increment to next value
