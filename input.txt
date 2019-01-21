@@ -1,4 +1,5 @@
 [-- input.txt is below --]
+*****
 
 * This is an outline
 
@@ -54,3 +55,4 @@ And this line too
 
 . The last line
 
+*****
